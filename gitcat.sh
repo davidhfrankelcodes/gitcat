@@ -130,7 +130,7 @@ if [ "$MODE" = "cat" ]; then
         fi
 
         # Check if binary
-        if [ "$FORCE_BINARY" = true ] || grep -Iq . "$file"; then
+        if [ "$FORCE_BINARY" = true ] || ( grep -Iq . "$file" && [ -s "$file" ] ); then
             echo "===== $file ====="
             cat "$file"
             echo
